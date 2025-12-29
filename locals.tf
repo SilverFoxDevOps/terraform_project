@@ -1,7 +1,7 @@
 locals {
   project      = "test"
   environment  = "poc"
-  region       = "eastus"
+  region       = "North Europe"
 
   # Naming Conventions
   resource_group_name = "rg-${local.project}-${local.environment}"
