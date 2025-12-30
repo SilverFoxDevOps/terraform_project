@@ -10,6 +10,9 @@ crash.log
 crash.*.log
 *.pem
 
+**/.terragrunt-cache/
+**/.terragrunt-cache*/
+
 # Exclude tfvars files (These contain your secrets/passwords)
 *.tfvars
 *.tfvars.json
