@@ -59,7 +59,7 @@ module "linux_vm" {
   name                = "vm-${local.project}-web"
   location            = azurerm_resource_group.primary.location
   resource_group_name = azurerm_resource_group.primary.name
-  size                = "Standard_B1s"
+  size                = "Standard_B2ats_v2"
   subnet_id           = azurerm_subnet.snet.id
   
   admin_username      = "azureadmin"
