@@ -1,0 +1,28 @@
+version: 3
+
+# Define a custom workflow named 'terragrunt'
+workflows:
+  terragrunt:
+    plan:
+      steps:
+        # We add -no-color and use the $PLANFILE variable so Atlantis can capture the output
+        - run: terragrunt plan -input=false -out=$PLANFILE
+    apply:
+      steps:
+        - run: terragrunt apply -input=false $PLANFILE
+
+# Apply this workflow to your projects
+projects:
+# Option A: If you want to automatically find all folders with terragrunt.hcl
+- dir: .
+  workspace: default
+  workflow: terragrunt
+  autoplan:
+    when_modified: ["*.hcl", "*.tf"]
+    enabled: true
+
+# Option B: Or specify specific directories (Safer for complex repos)
+# - dir: dev/us-east-1/app
+#   workflow: terragrunt
+# - dir: prod/us-east-1/app
+#   workflow: terragrunt
