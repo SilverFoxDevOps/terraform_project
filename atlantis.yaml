@@ -6,6 +6,7 @@ workflows:
     plan:
       steps:
         # We add -no-color and use the $PLANFILE variable so Atlantis can capture the output
+        - run: terragrunt init
         - run: terragrunt plan -input=false -out=$PLANFILE
     apply:
       steps:
