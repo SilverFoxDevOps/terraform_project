@@ -1,6 +1,6 @@
 # ---------------------------------------------------------
 # 1. Base Infrastructure (RG, VNet, Subnet)
-# ---------------------------------------------------------
+# -------------------------------------------- -------------
 resource "azurerm_resource_group" "primary" {
   name     = local.resource_group_name
   location = local.region
@@ -62,7 +62,7 @@ module "linux_vm" {
   size                = "Standard_B2ats_v2"
   subnet_id           = azurerm_subnet.snet.id
   
-  admin_username      = "azureadmin"
+  admin_username      = "adminusers"
   
   # Inject the generated password
   admin_password      = random_password.vm_admin.result
