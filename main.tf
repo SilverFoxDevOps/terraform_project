@@ -1,6 +1,6 @@
 # ---------------------------------------------------------
 # 1. Base Infrastructure (RG, VNet, Subnet)
-# ---------------------------------------------------------
+# -------------------------------------------- -------------
 resource "azurerm_resource_group" "primary" {
   name     = local.resource_group_name
   location = local.region
